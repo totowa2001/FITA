@@ -1,0 +1,14 @@
+2025.11.26 업데이트 scripts
+
+<Overview>
+- 11/20에 2학기 중간발표 진행했으며, 해당 발표에서 Demo 영상으로 사용한 version과 동일한 version.
+- Bug fix 필요한 지점 없음
+- Next Step : 3D Floating Object 구현 필요
+
+<YOLO>
+- 엔진 : Unity Barracuda 로컬 기반
+- 성능 : Meta Quest 3에서 정상적으로 작동하는 중 (confidence 약 0.3-0.6 수준)
+- 클래스 : 단일클래스(0; faucet)
+
+<UI>
+- Canvas에 붙여놓은 Dummy UI (Head Lock UI)
