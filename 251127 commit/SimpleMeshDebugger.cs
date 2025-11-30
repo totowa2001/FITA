@@ -1,3 +1,7 @@
+// Main Camera의 컴포넌트로 스크립트를 넣음
+// 'UI'에 TMP 텍스트 (Collision 결과 출력)
+// '시각화'에 None
+
 using UnityEngine;
 using TMPro; // TextMeshPro가 없다면 UnityEngine.UI로 바꾸고 Text로 쓰세요
 
