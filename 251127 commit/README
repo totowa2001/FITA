@@ -4,6 +4,7 @@
 - 3D Floating Object 구현 시도 중
 - Scene / Mesh + Raycast 사용
 - 아직 되고있지 않음 / 백업용 코드
+- Yolo 코드 지난번과 동일한 관계로 업로드 X
 
 <YOLO>
 - 엔진 : Unity Barracuda 로컬 기반
