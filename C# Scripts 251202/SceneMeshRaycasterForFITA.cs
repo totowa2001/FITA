@@ -1,5 +1,6 @@
 // 251202 추가 스크립트
 // 그 이전 버전에는 나오지 않는 새로운 스크립트임.
+// FaucetHintManager 오브젝트의 컴포넌트로 추가.
 
 using UnityEngine;
 using TMPro;
