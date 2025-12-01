@@ -1,11 +1,9 @@
 // 251202 추가 스크립트
 // 그 이전 버전에는 나오지 않는 새로운 스크립트임.
 
-
 using UnityEngine;
 using TMPro;
 
-[RequireComponent(typeof(SceneMeshRaycasterForFITA))] // 같은 컴포넌트에 붙을 거니까 사실 없어도 됨
 public class SceneMeshRaycasterForFITA : MonoBehaviour
 {
     [Header("References")]
@@ -32,6 +30,10 @@ public class SceneMeshRaycasterForFITA : MonoBehaviour
     [Tooltip("몇 초마다 한 번씩 샘플링할지")]
     public float sampleInterval = 0.25f;
 
+    [Header("Debug Raycast Test")]
+    [Tooltip("true면 testViewportUV 기준으로 주기적으로 Raycast(테스트용). false면 YOLO에서 넘어온 UV만 사용")]
+    public bool debugRayFromCenter = false;
+
     float _timer;
     bool _warnedNoText = false;
     bool _warnedNoCamera = false;
@@ -54,6 +56,10 @@ public class SceneMeshRaycasterForFITA : MonoBehaviour
 
     void Update()
     {
+        // 👉 이제 Update는 "테스트 모드"일 때만 동작
+        if (!debugRayFromCenter)
+            return;
+
         _timer += Time.deltaTime;
         if (_timer < sampleInterval) return;
         _timer = 0f;
@@ -84,12 +90,13 @@ public class SceneMeshRaycasterForFITA : MonoBehaviour
             return;
         }
 
-        // 3) 실제 샘플링
-        SampleAtViewportUV(testViewportUV);
+        // 3) 테스트용 샘플링 (YOLO와 무관)
+        SampleAtViewportUV(testViewportUV, moveHintObject: true, isFromYolo: false);
     }
 
     /// <summary>
     /// 외부에서 YOLO가 BBox 중심 UV를 넘겨줄 때 호출할 함수
+    /// FaucetHintManager에서 여기만 호출해주면 됨
     /// </summary>
     public bool PlaceHintFromViewportUV(Vector2 viewportUV)
     {
@@ -99,6 +106,7 @@ public class SceneMeshRaycasterForFITA : MonoBehaviour
     /// <summary>
     /// 내부·외부 공용 Raycast 로직
     /// moveHintObject=true이면 hintObject를 히트 위치로 옮김
+    /// isFromYolo=true면 로그/텍스트에 [YOLO]로 표시
     /// </summary>
     bool SampleAtViewportUV(Vector2 viewportUV, bool moveHintObject = true, bool isFromYolo = false)
     {
@@ -116,6 +124,7 @@ public class SceneMeshRaycasterForFITA : MonoBehaviour
         {
             if (moveHintObject && hintObject)
             {
+                // 힌트 위치/회전 설정
                 hintObject.position = hitInfo.point;
                 hintObject.rotation = Quaternion.LookRotation(-hitInfo.normal, Vector3.up);
                 hintObject.position += hitInfo.normal * 0.01f; // 표면에서 1cm 띄우기
