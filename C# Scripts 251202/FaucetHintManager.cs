@@ -1,4 +1,6 @@
 // 251202 YOLO → SceneMeshRaycaster 브릿지 전용 버전
+// FaucetHintManager 오브젝트의 컴포넌트.
+// 기존에 사용되던 동명의 스크립트와 다른 역할 수행
 
 using System.Collections.Generic;
 using UnityEngine;
