@@ -6,7 +6,7 @@ YOLO 탐지 -> 바운딩박스 영역에 Raycast -> Scene Mesh와 Collision -> C
 ##==== Hierarchy ====##
 
 Directional Light
-EventSystem      // EventSystem, InputSystemUIInputModule.cs
+EventSystem
 XR Interaction Manager      // XRInteractionManager.cs (XRInteractionToolkit > Runtime > ... )
 
 YoloSystem      // YoloPassthroughInput.cs, YoloDetector.cs, YoloVisulizer3D.cs
