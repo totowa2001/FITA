@@ -1,0 +1,46 @@
+251203 - W14 피드백용
+YOLO 탐지 -> 바운딩박스 영역에 Raycast -> Scene Mesh와 Collision -> Collision 영역에 살짝 offset된 곳에 3D 오브젝트 floating.
+
+
+
+##==== Hierarchy ====##
+
+Directional Light
+EventSystem      // EventSystem, InputSystemUIInputModule.cs
+XR Interaction Manager      // XRInteractionManager.cs (XRInteractionToolkit > Runtime > ... )
+
+YoloSystem      // YoloPassthroughInput.cs, YoloDetector.cs, YoloVisulizer3D.cs
+DetectionsRoot
+FaucetHintManager      // FaucetHintManager.cs, SceneMeshRaycasterForFITA.cs
+
+[BuildingBLock] Camera Rig      // RequestPermissionsOnce.cs
+    TrackingSpace
+        LeftEyeAnchor
+        CenterEyeAnchor      // PassthroughCameraAccess.cs(Meta MR Utility Kit > Core > ... ), CameraTextureProvider.cs(없어도될듯, ARFoundation > Runtime > ... ) 
+            Canvas Test
+                YoloDetectionText
+                (Disabled)DepthStatsText
+                (Disabled)DepthSampleText
+                Test_ToastWarning
+                Test_ToastWarning
+                Test-Temperature
+                BBoxRoot      // UI > Panel. 
+                YoloDebugImage      // UI > RawImage. Texture 및 Metarial 슬롯 비워둠
+        RightEyeAnchor
+        TrackerAnchor
+        LeftHandAnchor
+            ...
+        RightHandAnchor
+            ...
+        LeftHandAnchorDetached
+        RightHandAnchorDetached
+
+[BuildingBLock] MR Utility Kit
+[BuildingBLock] Passthrough
+[BuildingBLock] SceneMesh
+
+251126 3D UI Test      // 프리팹을 Scene에 배치.
+
+
+
+
