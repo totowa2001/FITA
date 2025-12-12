@@ -1,0 +1,42 @@
+251212 코드 리팩토링
+지난주(251203)과 기능상 동일, 코드 리팩토링 및 주석 정리 진행
+1학기 기말발표 최종 코드
+
+
+##==== Hierarchy ====##
+
+Directional Light
+EventSystem
+XR Interaction Manager      // XRInteractionManager.cs (XRInteractionToolkit > Runtime > ... )
+
+YoloSystem      // YoloPassthroughInput.cs, YoloDetector.cs, YoloVisulizer3D.cs
+DetectionsRoot
+FaucetHintManager      // FaucetHintManager.cs, SceneMeshRaycasterForFITA.cs
+
+[BuildingBLock] Camera Rig      // RequestPermissionsOnce.cs
+    TrackingSpace
+        LeftEyeAnchor
+        CenterEyeAnchor      // PassthroughCameraAccess.cs(Meta MR Utility Kit > Core > ... ), CameraTextureProvider.cs(없어도될듯, ARFoundation > Runtime > ... ) 
+            Canvas Test
+                YoloDetectionText
+                (Disabled)DepthStatsText
+                (Disabled)DepthSampleText
+                Test_ToastWarning
+                Test_ToastWarning
+                Test-Temperature
+                BBoxRoot      // UI > Panel. 
+                YoloDebugImage      // UI > RawImage. Texture 및 Metarial 슬롯 비워둠
+        RightEyeAnchor
+        TrackerAnchor
+        LeftHandAnchor
+            ...
+        RightHandAnchor
+            ...
+        LeftHandAnchorDetached
+        RightHandAnchorDetached
+
+[BuildingBLock] MR Utility Kit
+[BuildingBLock] Passthrough
+[BuildingBLock] SceneMesh
+
+251126 3D UI Test      // 프리팹을 Scene에 배치.
