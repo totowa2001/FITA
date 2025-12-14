@@ -110,12 +110,9 @@ public class FaucetHintManager : MonoBehaviour
         float u = cx / (float)frameWidth;
         float v = 1.0f - (cy / (float)frameHeight);
 
+        // 5. Raycast
         // viewportUV(Vector2)를 SceneMeshRaycasterForFITA.cs로 전달 (함수 자체 리턴은 void)
         Vector2 viewportUV = new Vector2(u, v);
-
-
-        // 5. Raycast
-        // PlaceHintFromViewportUV()는 SceneMeshRaycasterForFITA.cs에 있음
         sceneRaycaster.PlaceHintFromViewportUV(viewportUV);
     }
 }
