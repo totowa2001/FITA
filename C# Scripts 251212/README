@@ -1,6 +1,11 @@
-251212 코드 리팩토링
-지난주(251203)과 기능상 동일, 코드 리팩토링 및 주석 정리 진행
 1학기 기말발표 최종 코드
+251212 이후 코드.
+지난주(251203)와 기능상 동일, 코드 리팩토링 및 주석 정리 진행
+
+##==== Updates ====##
+1. ServerManager 추가 -> 로컬 서버와 연동.
+    └ GoldenTime 계산 및 로컬에서 Countdown 구현
+    └ 골든타임 게이지 UI와 연동 예정
 
 
 ##==== Hierarchy ====##
@@ -11,7 +16,9 @@ XR Interaction Manager      // XRInteractionManager.cs (XRInteractionToolkit > R
 
 YoloSystem      // YoloPassthroughInput.cs, YoloDetector.cs, YoloVisulizer3D.cs
 DetectionsRoot
-FaucetHintManager      // FaucetHintManager.cs, SceneMeshRaycasterForFITA.cs
+
+FaucetHintManager    // FaucetHintManager.cs, SceneMeshRaycasterForFITA.cs
+ServerManager        // GoldenTime.cs, YoloOnServer.cs
 
 [BuildingBLock] Camera Rig      // RequestPermissionsOnce.cs
     TrackingSpace
